@@ -12,72 +12,71 @@ const loadModule = (cb) => (componentModule) => {
 };
 
 export default function createRoutes() {
-
   return [
     {
-       path: '/',
-       name: 'Home',
-       getComponent(nextState, cb) {
-         import('containers/Home')
+      path: '/',
+      name: 'Home',
+      getComponent(nextState, cb) {
+        import('containers/Home')
            .then(loadModule(cb))
            .catch(errorLoading);
+      },
     },
-     },
-     {
-        path: '/Contact',
-        name: 'Contact',
-        getComponent(nextState, cb) {
-          import('containers/Contact')
+    {
+      path: '/Contact',
+      name: 'Contact',
+      getComponent(nextState, cb) {
+        import('containers/Contact')
             .then(loadModule(cb))
             .catch(errorLoading);
-     },
       },
-      {
-         path: '/Blog',
-         name: 'Blog',
-         getComponent(nextState, cb) {
-           import('containers/Blog')
+    },
+    {
+      path: '/Blog',
+      name: 'Blog',
+      getComponent(nextState, cb) {
+        import('containers/Blog')
              .then(loadModule(cb))
              .catch(errorLoading);
       },
-       },
-       {
-          path: '/dashboard',
-          name: 'Dashboard',
-          getComponent(nextState, cb) {
-            import('containers/Dashboard')
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      getComponent(nextState, cb) {
+        import('containers/Dashboard')
               .then(loadModule(cb))
               .catch(errorLoading);
-        },
-         },
-         {
-            path: '/single/:id',
-            name: 'Single',
-            getComponent(nextState, cb) {
-              import('containers/Single')
+      },
+    },
+    {
+      path: '/single/:id',
+      name: 'Single',
+      getComponent(nextState, cb) {
+        import('containers/Single')
                 .then(loadModule(cb))
                 .catch(errorLoading);
-        },
-         },
-         {
-            path: '/signin',
-            name: 'SignIn',
-            getComponent(nextState, cb) {
-              import('containers/SignIn')
+      },
+    },
+    {
+      path: '/signin',
+      name: 'SignIn',
+      getComponent(nextState, cb) {
+        import('containers/SignIn')
                 .then(loadModule(cb))
                 .catch(errorLoading);
-        },
-         },
-         {
-            path: '/signup',
-            name: 'SignUp',
-            getComponent(nextState, cb) {
-              import('containers/SignUp')
+      },
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      getComponent(nextState, cb) {
+        import('containers/SignUp')
                 .then(loadModule(cb))
                 .catch(errorLoading);
-       },
-        },
-     {
+      },
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

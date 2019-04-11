@@ -5,9 +5,9 @@
 */
 
 import React from 'react';
-import {Link} from "react-router";
+import { Link } from 'react-router';
 import Responsive from 'react-responsive';
-import MenuIcon from "material-ui/svg-icons/navigation/menu";
+import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
 
 class NavBar2 extends React.PureComponent {
@@ -15,160 +15,153 @@ class NavBar2 extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      menuOpen:false,
-      token:sessionStorage.getItem("token"),
-      user:sessionStorage.getItem("user")
-    }
+      menuOpen: false,
+      token: sessionStorage.getItem('token'),
+      user: sessionStorage.getItem('user'),
+    };
   }
 
   handleMenu = () => {
-    if(this.state.menuOpen == false)
-    {
+    if (this.state.menuOpen == false) {
       this.setState({
-        menuOpen:true
-      })
-    }
-    else if(this.state.menuOpen == true)
-    {
+        menuOpen: true,
+      });
+    } else if (this.state.menuOpen == true) {
       this.setState({
-        menuOpen:false
-      })
+        menuOpen: false,
+      });
     }
   }
 
   showMenu = () => {
+    const nav = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignSelf: 'center',
+    };
 
-          const nav={
-                    display:"flex",
-                    flexDirection:"column",
-                    alignSelf:'center'
-                    }
+    const linkStyle = {
+      textDecoration: 'none',
+      color: '#000000',
+      fontSize: '2em',
+      fontFamily: 'Josefin Sans',
+      fontStyle: 'light',
+      fontWeight: '300',
+      textAlign: 'center',
+    };
 
-    const linkStyle={
-                     textDecoration:"none",
-                     color:"#000000",
-                     fontSize:"2em",
-                     fontFamily:"Josefin Sans",
-                     fontStyle:"light",
-                     fontWeight:"300",
-                     textAlign:"center"
-                    };
+    if (this.state.menuOpen == true) {
+      let dashLink = <Link style={linkStyle} to="/Dashboard"> Dashboard </Link>;
+      let signUpLink = <Link to="/SignUp" style={linkStyle}>Sign Up</Link>;
+      let signInLink = <Link to="/SignIn" style={linkStyle}>Sign In</Link>;
 
-    if(this.state.menuOpen == true)
-    {
-      var dashLink = <Link style={linkStyle} to= "/Dashboard"> Dashboard </Link>;
-      var signUpLink = <Link to="/SignUp" style={linkStyle}>Sign Up</Link>;
-      var signInLink = <Link to="/SignIn" style={linkStyle}>Sign In</Link>;
-
-      if(this.state.token === null){
-        dashLink="";
-      }
-      else{
-        signUpLink="";
-        signInLink="";
-        if(this.state.user.roleID !== 1){
-          dashLink="";
+      if (this.state.token === null) {
+        dashLink = '';
+      } else {
+        signUpLink = '';
+        signInLink = '';
+        if (this.state.user.roleID !== 1) {
+          dashLink = '';
         }
       }
-      return(
+      return (
         <nav style={nav}>
           <Link to="/" style={linkStyle}>Main</Link>
-          <Link style={linkStyle} to= "/Blog"> Blog </Link>
-          <Link style={linkStyle} to= "/Contact"> Contact </Link>
+          <Link style={linkStyle} to="/Blog"> Blog </Link>
+          <Link style={linkStyle} to="/Contact"> Contact </Link>
           {signUpLink}
           {signInLink}
           {dashLink}
         </nav>
-      )
+      );
     }
   }
 
 
   handleScroll = (num) => {
-    window.scroll(0,num);
+    window.scroll(0, num);
   }
   render() {
-    const navStyle={
-                     margin:"0",
-                     padding:"10px",
-                     width:"100%",
-                     fontSize:"2em",
-                     fontFamily:"Josefin Sans",
-                     fontStyle:"light",
-                     fontWeight:"300",
-                     borderTop:"2px solid #000000",
-                     borderBottom:"1px solid #000000",
-                     textAlign:"center",
-                     }
+    const navStyle = {
+      margin: '0',
+      padding: '10px',
+      width: '100%',
+      fontSize: '2em',
+      fontFamily: 'Josefin Sans',
+      fontStyle: 'light',
+      fontWeight: '300',
+      borderTop: '2px solid #000000',
+      borderBottom: '1px solid #000000',
+      textAlign: 'center',
+    };
 
-    const navStyle2={
-      display:"flex",
-      flexDirection:"row",
-      justifyContent:"center",
-      height:"100px",
-      alignItems:"center",
-      textDecoration:"none",
-      color:"#000000",
-      fontSize:"1em",
-      fontFamily:"Josefin Sans",
-      fontStyle:"light",
-      fontWeight:"300",
-      textAlign:"right",
-      textTransform:"uppercase",
-      letterSpacing:"2px",
-    }
-    const headStyle={
-      display:"flex",
-      flexDirection:"column",
-      justifyContent:"center"
-    }
-    const logoStyle={
-      margin:"0 auto",
-      marginTop:"20px",
-      height:"auto",
-      width:"150px"
-    }
-    const linkStyle2={
-      display:"flex",
-      flexDirection:"row",
-      paddingRight:"30px",
-      textDecoration:"none",
-      color:"#000000",
-      fontSize:"1em",
-      fontFamily:"Josefin Sans",
-      fontStyle:"light",
-      fontWeight:"300",
-      textAlign:"right",
-      textTransform:"uppercase",
-      letterSpacing:"2px",
-    }
-      const divStyle2Mobile={
-        width:"100%",
-        height:"auto",
-        display:"flex",
-        flexDirection:"column",
-        justifyContent:"center center",
-    }
-    var dashLink = <Link style={linkStyle2} to= "/Dashboard"> Dashboard </Link>;
-    var signUpLink = <Link to="/SignUp" style={linkStyle2}>Sign Up</Link>;
-    var signInLink = <Link to="/SignIn" style={linkStyle2}>Sign In</Link>;
+    const navStyle2 = {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      height: '100px',
+      alignItems: 'center',
+      textDecoration: 'none',
+      color: '#000000',
+      fontSize: '1em',
+      fontFamily: 'Josefin Sans',
+      fontStyle: 'light',
+      fontWeight: '300',
+      textAlign: 'right',
+      textTransform: 'uppercase',
+      letterSpacing: '2px',
+    };
+    const headStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+    };
+    const logoStyle = {
+      margin: '0 auto',
+      marginTop: '20px',
+      height: 'auto',
+      width: '150px',
+    };
+    const linkStyle2 = {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingRight: '30px',
+      textDecoration: 'none',
+      color: '#000000',
+      fontSize: '1em',
+      fontFamily: 'Josefin Sans',
+      fontStyle: 'light',
+      fontWeight: '300',
+      textAlign: 'right',
+      textTransform: 'uppercase',
+      letterSpacing: '2px',
+    };
+    const divStyle2Mobile = {
+      width: '100%',
+      height: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center center',
+    };
+    let dashLink = <Link style={linkStyle2} to="/Dashboard"> Dashboard </Link>;
+    let signUpLink = <Link to="/SignUp" style={linkStyle2}>Sign Up</Link>;
+    let signInLink = <Link to="/SignIn" style={linkStyle2}>Sign In</Link>;
 
-    if(this.state.token === null){
-      dashLink="";
-    }
-    else{
-      signUpLink="";
-      signInLink="";
+    if (this.state.token === null) {
+      dashLink = '';
+    } else {
+      signUpLink = '';
+      signInLink = '';
 
-      if(this.state.user.roleID !== 1){
-        dashLink="";
+      if (this.state.user.roleID !== 1) {
+        dashLink = '';
       }
     }
     return (
       <div style={divStyle2Mobile}>
         <Responsive minDeviceWidth={1024}>
           <div style={headStyle}>
-            <img style={logoStyle} src="http://h4z.it/Image/f02f70_llustration3.png"/>
+            <img style={logoStyle} src="http://h4z.it/Image/f02f70_llustration3.png" />
             <nav style={navStyle2}>
               <Link to="/" style={linkStyle2}>
                   Main
@@ -188,12 +181,12 @@ class NavBar2 extends React.PureComponent {
 
         <Responsive maxDeviceWidth={1023}>
           <div style={headStyle}>
-            <img style={logoStyle} src="http://h4z.it/Image/f02f70_llustration3.png"/>
-          <nav style={navStyle2}>
-            <IconButton onTouchTap={this.handleMenu}> <MenuIcon/> </IconButton>
-          </nav>
-          {this.showMenu()}
-        </div>
+            <img style={logoStyle} src="http://h4z.it/Image/f02f70_llustration3.png" />
+            <nav style={navStyle2}>
+              <IconButton onTouchTap={this.handleMenu}> <MenuIcon /> </IconButton>
+            </nav>
+            {this.showMenu()}
+          </div>
         </Responsive>
       </div>
     );

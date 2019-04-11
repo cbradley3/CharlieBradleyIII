@@ -43,7 +43,7 @@ const rootRoute = {
 const render = () => {
   ReactDOM.render(
     <div>
-        <Router history={browserHistory} routes={rootRoute} render={applyRouterMiddleware(useScroll())}/>
+      <Router history={browserHistory} routes={rootRoute} render={applyRouterMiddleware(useScroll())} />
     </div>,
     document.getElementById('app')
   );
