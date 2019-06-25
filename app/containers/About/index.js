@@ -11,15 +11,15 @@ export class Blog extends React.PureComponent {
   render() {
     return (
       <div>
-        <Helmet title="Blog" meta={[ { name: 'description', content: 'Description of Blog' }]}/>
+        <Helmet title="Blog" meta={[{ name: 'description', content: 'Description of Blog' }]} />
         <header>
           <nav>
-          <Link to="/"> Home </Link>
-          <Link to="/Blog"> Blog </Link>
+            <Link to="/"> Home </Link>
+            <Link to="/Blog"> Blog </Link>
           </nav>
         </header>
-        <main>    </main>
-        <footer>  </footer>
+        <main>              </main>
+        <footer>            </footer>
 
       </div>
     );

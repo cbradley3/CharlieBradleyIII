@@ -25,7 +25,7 @@ module.exports = {
   }],
   actions: (data) => {
     // Generate index.js and index.test.js
-    let componentTemplate = './component/es6.pure.js.hbs';
+    const componentTemplate = './component/es6.pure.js.hbs';
 
     const actions = [{
       type: 'add',
